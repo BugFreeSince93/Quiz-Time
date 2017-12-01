@@ -19,6 +19,7 @@ public class QuizTime {
 		
             Question get = q.listOfQuestions.get(0);
             Question get1 = q.listOfQuestions.get(1);
+            System.out.println(get1.getQuestion());
             
             System.out.println(get1 );
             System.out.println(get);

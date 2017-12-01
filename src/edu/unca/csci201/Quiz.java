@@ -1,6 +1,7 @@
 package edu.unca.csci201;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Quiz {
 	private int score;
@@ -20,11 +21,11 @@ public class Quiz {
             
 		
 
-		arrayOfQuestions = new Question [25];
-		for (; i < arrayOfQuestions.length; i++) {
-			arrayOfQuestions[i] = q;
+		//arrayOfQuestions = new Question [25];
+		//for (; i < arrayOfQuestions.length; i++) {
+			//arrayOfQuestions[i] = q;
 			
-		}
+		
 		
 	}
 
@@ -33,14 +34,18 @@ public class Quiz {
 	public double giveQuiz(Quiz q) {
 		Quiz myQuiz = q;
 		String thisQuestion;
-		for (Question question : listOfQuestions) {
-                    //System.out.println(question);
-                    
-                    //question.isCorrectAnswer(answer)
-		}
+                
+                for (Question question : listOfQuestions) {
+                    System.out.println(question);
+                }
+             
+                
+                listOfQuestions.forEach((question)-> { //thank you netbeans
+                    System.out.println(question);
+                    });
+
+                        
 		
-		
-		//System.out.println(listOfQuestions);
 		return score;
 	}
 }
