@@ -34,7 +34,7 @@ public class Quiz {
 		Quiz myQuiz = q;
 		String thisQuestion;
 		for (Question question : listOfQuestions) {
-                    System.out.println(question);
+                    //System.out.println(question);
                     
                     //question.isCorrectAnswer(answer)
 		}

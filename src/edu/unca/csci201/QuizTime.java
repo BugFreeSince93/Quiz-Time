@@ -6,6 +6,7 @@ public class QuizTime {
 		
 	public static void main(String[] args) {
 		Quiz q = new Quiz();
+                TrueFalseQuestion z;
 		
 		TrueFalseQuestion one = new TrueFalseQuestion("is this right?","T");
 		TrueFalseQuestion two = new TrueFalseQuestion("is this wrong?","F");
@@ -16,17 +17,13 @@ public class QuizTime {
 		
 		q.giveQuiz(q);
 		
-		//System.out.println(q.arrayOfQuestions[1]);
-		
-                
-		
-
-			
-
-
-
-		//one.getCorrectAnswer();
-		//one.isCorrectAnswer("T");
+            Question get = q.listOfQuestions.get(0);
+            Question get1 = q.listOfQuestions.get(1);
+            
+            System.out.println(get1 );
+            System.out.println(get);
+            //one.getCorrectAnswer();
+            //one.isCorrectAnswer("T");
 
 	}
 
