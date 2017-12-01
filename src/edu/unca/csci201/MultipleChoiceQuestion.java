@@ -1,8 +1,9 @@
-package newpackage;
+package edu.unca.csci201;
 
-public class ShortAnswerQuestion implements Question {
 
-	public ShortAnswerQuestion() {
+public class MultipleChoiceQuestion implements Question {
+
+	public MultipleChoiceQuestion() {
 		// TODO Auto-generated constructor stub
 	}
 
