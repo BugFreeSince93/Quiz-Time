@@ -2,50 +2,84 @@ package edu.unca.csci201;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class Quiz {
-	private int score;
-	public ArrayList<Question> listOfQuestions;
-	Question [] arrayOfQuestions;
-	private int correct;
-	private int incorrect;
 
-	int i;
+    private int score;
+    public ArrayList<Question> listOfQuestions;
+    public ArrayList<Question> listOfIncorrectQuestion;
+    public ArrayList<String> listOfIncorrectInput;
 
-	public Quiz() {
-            listOfQuestions = new ArrayList<>();
-	}
+    Question[] arrayOfQuestions;
+    private int correct;
+    private int incorrect;
 
-	public void addQuestion(Question q) {
-            listOfQuestions.add(q);
-            
-		
+    public Quiz() {
+        listOfQuestions = new ArrayList<>();
+        listOfIncorrectInput = new ArrayList<>();
+        listOfIncorrectQuestion = new ArrayList<>();
 
-		//arrayOfQuestions = new Question [25];
-		//for (; i < arrayOfQuestions.length; i++) {
-			//arrayOfQuestions[i] = q;
-			
-		
-		
-	}
+    }
 
+    public void addQuestion(Question q) {
+        listOfQuestions.add(q);
+    }
 
+    public void showIncorrectAnswers() {
+        System.out.println("Shall we review the questions you answered incorrectly?");
 
-	public double giveQuiz(Quiz q) {
-		Quiz myQuiz = q;
-		String thisQuestion;
-                
-                for (Question question : listOfQuestions) {
-                    System.out.println(question);
-                }
-             
-                
-                listOfQuestions.forEach((question)-> { //thank you netbeans
-                    System.out.println(question);
-                    });
+        int z = 0;
+        for (int i = 0; i < listOfIncorrectQuestion.size(); i++) {
+            System.out.print("Incorrect Question " + z);
+            System.out.println();
+            System.out.print(listOfIncorrectQuestion.get(i).getQuestion());
+            System.out.println();
+            System.out.println();
 
-                        
-		
-		return score;
-	}
+            System.out.print("This was your answer: ");
+            System.out.println();
+            System.out.print(listOfIncorrectInput.get(i));
+            System.out.println();
+            System.out.println();
+
+            System.out.print("This is the correct answer: ");
+            System.out.print(listOfIncorrectQuestion.get(i).getCorrectAnswer());
+            System.out.println("\n");
+            z++;
+        }
+
+    }
+
+    public double giveQuiz(Quiz q) {
+        String thisQuestion;
+        float scorePerc;
+
+        listOfQuestions.forEach((question) -> { //thank you netbeans for weird syntactical options
+            String givenAnswer;
+            Scanner scan;
+
+            System.out.println(question.getQuestion());
+            scan = new Scanner(System.in);
+            givenAnswer = scan.nextLine();
+
+            if (question.isCorrectAnswer(givenAnswer)) {
+
+                score++;
+
+            } else {
+                listOfIncorrectQuestion.add(question);
+
+                listOfIncorrectInput.add(givenAnswer);
+            }
+        });
+
+        scorePerc = ((float) score / (float) listOfQuestions.size()) * 100;
+
+        System.out.println(score + " out of " + listOfQuestions.size() + ": " + scorePerc);
+
+        showIncorrectAnswers();
+
+        return score;
+    }
 }
