@@ -6,8 +6,11 @@ public class QuizTime {
         Quiz q = new Quiz();
 
         System.out.println("This is a quiz, there will be no leinency for lazy answers");
+        System.out.println();
         System.out.println("If you do not obey the paramaters for answering these questions properly, I will consider your answer false");
+        System.out.println();
         System.out.println("If no paramaters are given, it is a short answer question. Please capitalize the first letter of your words");
+        System.out.println();
         System.out.println("Kids these days seem to type in all sorts of crazy ways");
         System.out.println("#MakeWritingGreatAgain");
 
@@ -66,13 +69,8 @@ public class QuizTime {
         q.addQuestion(twentyThree);
         q.addQuestion(twentyFour);
         q.addQuestion(twentyFive);
-        
+
         q.giveQuiz(q);
-                
-                
-                
-               
-                
 
     }
 
